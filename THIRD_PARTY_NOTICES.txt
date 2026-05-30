@@ -1,0 +1,14 @@
+Third-party notices
+
+This static web app includes browser-side FFmpeg WebAssembly files.
+
+- @ffmpeg/ffmpeg
+  License: MIT
+  Package: https://www.npmjs.com/package/@ffmpeg/ffmpeg
+
+- @ffmpeg/core
+  License: GPL-2.0-or-later
+  Package: https://www.npmjs.com/package/@ffmpeg/core
+
+The app performs video conversion in the user's browser. No video file is
+uploaded to a server by this static app.

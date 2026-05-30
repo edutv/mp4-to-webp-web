@@ -1,0 +1,97 @@
+<!doctype html>
+<!-- SPDX-License-Identifier: GPL-2.0-or-later -->
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MP4 / MOV to WebP</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script defer src="./vendor/ffmpeg/ffmpeg.js"></script>
+    <script defer src="./app.js"></script>
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">MP4 / MOV to WebP</p>
+          <h1>视频转 WebP 动图</h1>
+        </div>
+        <span class="local-badge">本机转换</span>
+      </header>
+
+      <section class="tool-panel" aria-label="转换工具">
+        <fieldset class="step">
+          <legend>第 1 步：选择源文件</legend>
+          <p class="hint">建议选择 15 秒以内的视频。文件只在当前浏览器中处理。</p>
+
+          <label class="file-picker">
+            <input id="sourceFile" type="file" accept="video/mp4,video/quicktime,.mp4,.mov" />
+            <span>选择视频</span>
+          </label>
+
+          <dl id="fileMeta" class="meta-grid" aria-live="polite">
+            <div>
+              <dt>文件</dt>
+              <dd>未选择</dd>
+            </div>
+            <div>
+              <dt>时长</dt>
+              <dd>-</dd>
+            </div>
+            <div>
+              <dt>分辨率</dt>
+              <dd>-</dd>
+            </div>
+          </dl>
+        </fieldset>
+
+        <fieldset class="step">
+          <legend>第 2 步：指定输出</legend>
+          <label class="text-field" for="outputName">
+            <span>下载文件名</span>
+            <input id="outputName" type="text" value="output.webp" autocomplete="off" />
+          </label>
+        </fieldset>
+
+        <fieldset class="step">
+          <legend>第 3 步：参数设置</legend>
+          <div class="settings-grid">
+            <label class="range-field" for="fpsRange">
+              <span>动画帧率 <strong id="fpsValue">15</strong> FPS</span>
+              <input id="fpsRange" type="range" min="4" max="30" value="15" />
+            </label>
+
+            <label class="range-field" for="qualityRange">
+              <span>编码质量 <strong id="qualityValue">75</strong></span>
+              <input id="qualityRange" type="range" min="0" max="100" value="75" />
+            </label>
+          </div>
+
+          <label class="toggle-field" for="scaleToggle">
+            <input id="scaleToggle" type="checkbox" checked />
+            <span>宽度超过 1000px 时自动缩放</span>
+          </label>
+        </fieldset>
+
+        <div class="actions">
+          <button id="convertButton" class="primary-button" type="button" disabled>开始转换</button>
+          <a id="downloadLink" class="download-button" hidden download="output.webp">下载 WebP</a>
+        </div>
+
+        <div class="progress-wrap" aria-live="polite">
+          <div class="progress-track">
+            <div id="progressFill" class="progress-fill"></div>
+          </div>
+          <p id="statusText" class="status-text">准备就绪</p>
+        </div>
+
+        <figure id="previewBox" class="preview-box" hidden>
+          <img id="previewImage" alt="WebP 输出预览" />
+          <figcaption id="previewCaption"></figcaption>
+        </figure>
+      </section>
+
+      <footer class="developer-credit">开发：缪熙</footer>
+    </main>
+  </body>
+</html>
