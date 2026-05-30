@@ -49,6 +49,13 @@ a {
   min-height: 86px;
 }
 
+.header-actions {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 10px;
+}
+
 .eyebrow {
   margin: 0 0 5px;
   color: var(--accent);
@@ -66,7 +73,6 @@ h1 {
 }
 
 .local-badge {
-  flex: 0 0 auto;
   border: 1px solid rgb(49 196 141 / 0.45);
   border-radius: 999px;
   padding: 8px 13px;
@@ -74,6 +80,20 @@ h1 {
   background: rgb(49 196 141 / 0.12);
   font-size: 14px;
   font-weight: 700;
+}
+
+.language-button {
+  min-height: 36px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0 12px;
+  color: var(--text);
+  background: #252b28;
+  font-size: 14px;
+}
+
+.language-button:hover {
+  background: #313a35;
 }
 
 .tool-panel {
@@ -329,6 +349,7 @@ button:hover,
   }
 
   .topbar,
+  .header-actions,
   .actions,
   .settings-grid,
   .meta-grid {
@@ -337,11 +358,13 @@ button:hover,
   }
 
   .topbar,
+  .header-actions,
   .actions {
     display: grid;
   }
 
   .local-badge,
+  .language-button,
   .download-button {
     justify-self: start;
   }

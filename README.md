@@ -8,6 +8,7 @@ A free, open-source static web app that converts short MP4 or MOV videos into an
 - No video upload and no conversion server.
 - Adjustable FPS and WebP quality.
 - Optional automatic downscaling for videos wider than 1000px.
+- English UI by default, with a Chinese language switch.
 - Works as a static site on GitHub Pages or any ordinary web host.
 
 ## Use
